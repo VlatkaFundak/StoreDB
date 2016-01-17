@@ -1,0 +1,36 @@
+﻿@model StoreApplication.Models.ItemModel
+
+@{
+    ViewBag.Title = "NewItem";
+}
+
+<h2>NewItem</h2>
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+
+    <br />
+
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description)
+
+    <br />
+
+    @Html.LabelFor(model => model.Price)
+    @Html.EditorFor(model => model.Price)
+
+    <br />
+
+    @Html.LabelFor(model => model.CategoryId)
+    
+    @Html.DropDownListFor(model => model.CategoryId, (SelectList)ViewBag.Categories, "Select category")
+        <br />
+        <input type="submit" value="Save">
+        }
+
+        @Html.ActionLink("Cancel", "Cancel", "Home");
+
